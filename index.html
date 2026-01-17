@@ -45,9 +45,19 @@
 
             <p align="center">
     <font size="2">あなたは</font>
-    <font size="5" color="#FF0000"><b>001234</b></font>
+    <font size="5" color="#FF0000"><b><span id="count_number">001234</span></b></font>
     <font size="2">人目の訪問者です</font>
 </p>
+
+<script>
+    // ブラウザの保存機能（localStorage）を使ってカウントする魔法
+    let count = localStorage.getItem('visit_count') || 1000; // 最初は1000からスタート
+    count = parseInt(count) + 1;
+    localStorage.setItem('visit_count', count);
+    
+    // 6桁の数字に見えるように「0」で埋める処理
+    document.getElementById('count_number').innerText = count.toString().padStart(6, '0');
+</script>
             <hr size="1">
 
             <a name="profile"></a>
@@ -81,6 +91,7 @@
 </body>
 
 </html>
+
 
 
 
